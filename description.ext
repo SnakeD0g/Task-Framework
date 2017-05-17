@@ -1,0 +1,71 @@
+/*
+Simple Description.ext by SnakeDog
+*/
+// MENU SCREEN | MISSION OVERVIEW
+overviewText 	= "Lorem ipsum";	// Brief mission summary
+overviewPicture = "Media\Snapshot.jpg";	// File location of mission snapshot ( 2:1 aspect ratio | ideally 1024x512 | JPEG format)
+
+// LOAD SCREEN
+onLoadName 		= Lorem ipsum;	// Mission title
+author 			= "SnakeDog";		// Author
+loadScreen 		= "Media\Overlay.jpg";	// File location of small overlay image (512x256 | JPEG format)
+onLoadMission 	= Lorem ipsum;	// Brief mission description
+
+/* MISSION HEADER
+Choose from the list below to insert in 'gameType'
+		Coop 	= Cooperative Mission
+		Team 	= Team Mission
+		DM 		= Death Match
+		Hold 	= Hold Location
+		CTF 	= Capture the Flag
+		FF 		= Flag Fight
+		Scont 	= Sector Control
+		Unknown = Used when no class header is defined
+*/
+class Header
+{
+gameType 	= Coop;	// See options above
+minPlayers 	= 1;	// Minimum players
+maxPlayers 	= 16;	// Maximum players
+};
+
+/* RESPAWN SETTINGS
+		0 = No respawn
+		1 = Respawn as a seagull
+		2 = Respawn where player died
+		3 = Respawn at base marker
+		4 = Respawn as a playable AI in player's group
+		5 = Respawn as a playable AI on player's side
+*/
+Respawn 			= 3;	// See options above
+respawnDelay 		= 10;	// Respawn delay in seconds
+respawnVehicleDelay = 120;	// Vehicle respawn delay in seconds
+
+// ==================================  OTHER SETTINGS  ===================================
+aiKills 	= 0;	// Enable scorelist for AI players (1=yes/0=no)
+disabledAI 	= 1;	// Remove playable units not controlled by human players (1=yes/0=no)
+
+#include "snakedog\dialogs\common.hpp"
+#include "snakedog\dialogs\dialog1.hpp"
+#include "snakedog\dialogs\CombatOperations.hpp"
+#include "snakedog\dialogs\SupportOperations.hpp"
+
+
+// Virtual Vehicle Spawn
+#include "VVS\menu.h"
+// View distance
+#include "CHVD\dialog.hpp"
+
+class CfgFunctions
+{
+	#include "VVS\Functions.h"
+	#include "CHVD\CfgFunctions.hpp"
+};
+
+class CfgNotifications {
+#include "CCG\CCG_cfgNotifications.hpp"
+};
+
+class CfgCommunicationMenu {
+#include "CCG\CCG_CfgCommunicationMenu.hpp"
+};
